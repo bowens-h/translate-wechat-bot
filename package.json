@@ -1,7 +1,7 @@
 {
-  "name": "ts-koa-starter",
+  "name": "translate-wechat-bot",
   "version": "1.0.0",
-  "description": "一个简单的koa+typescript+typeorm的起手式",
+  "description": "微信翻译机器人",
   "tags": [
     "orm",
     "typescript",
