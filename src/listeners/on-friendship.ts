@@ -24,9 +24,9 @@ async function onFriendship (friendship) {
     const bot = Wechaty.instance()
     if (friendship.type() === bot.Friendship.Type.Receive) {
       await friendship.accept()
+      const contact = friendship.contact()
+      await contact.say('Hello,you can say anything and i will translate it.')
     }
-    const contact = friendship.contact()
-    await contact.say('Hello,you can say anything and i will translate it.')
   } catch (e) {
     console.error(e)
   }
