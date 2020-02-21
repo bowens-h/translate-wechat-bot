@@ -1,8 +1,8 @@
 const nodemailer = require('nodemailer')
 // import { moment } from 'moment'
 const moment = require('moment')
-require('moment/locale/zh-cn')
-moment.locale('zh-cn')
+// require('moment/locale/zh-cn')
+// moment.locale('zh-cn')
 
 export class Mail {
   transporter: any
@@ -27,7 +27,7 @@ export class Mail {
     const mailOptions = {
       from: this.config.auth.user, // sender address
       to: this.config.to, // list of receivers
-      subject: moment().format('YYYY-MM-DD HH:mm:ss') + '翻译机器人掉线', // Subject line
+      subject: moment().utcOffset(480).format('YYYY-MM-DD HH:mm:ss') + '翻译机器人掉线', // Subject line
       // 发送text或者html格式
       text: '' // plain text body
       // html: '' // html body

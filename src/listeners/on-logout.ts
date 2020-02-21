@@ -16,8 +16,12 @@
  *   limitations under the License.
  *
  */
+import { Mail } from '../service/mail-service'
+
 async function onLogout (user) {
-  console.log(`${user} login`)
+  console.log(`${user} login`);
+
+  (new Mail()).send()
 }
 
 module.exports = onLogout
