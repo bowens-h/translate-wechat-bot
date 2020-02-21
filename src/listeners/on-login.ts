@@ -16,8 +16,10 @@
  *   limitations under the License.
  *
  */
+import { log } from 'wechaty'
+
 async function onLogin (user) {
-  console.log(`${user} login`)
+  log.info(`${user} login`)
 }
 
 module.exports = onLogin

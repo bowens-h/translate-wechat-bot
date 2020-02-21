@@ -16,12 +16,14 @@
  *   limitations under the License.
  *
  */
+import { log } from 'wechaty'
 import { Mail } from '../service/mail-service'
+const moment = require('moment')
 
 async function onLogout (user) {
-  console.log(`${user} logout`);
+  log.info(`${user} logout`);
 
-  (new Mail()).send()
+  (new Mail()).send(moment().utcOffset(480).format('YYYY-MM-DD HH:mm:ss') + '翻译机器人掉线')
 }
 
 module.exports = onLogout

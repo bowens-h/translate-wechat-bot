@@ -17,7 +17,7 @@
  *
  */
 
-import { Wechaty } from 'wechaty'
+import { Wechaty, log } from 'wechaty'
 import { Translate } from '../service/translate-service'
 
 async function onMessage (msg) {
@@ -27,16 +27,16 @@ async function onMessage (msg) {
   const room = msg.room()
   if (room) {
     const topic = await room.topic()
-    console.log(`Room: ${topic} Contact: ${contact.name()} Text: ${text}`)
+    log.info(`Room: ${topic} Contact: ${contact.name()} Text: ${text}`)
   } else {
-    console.log(`Contact: ${contact.name()} Text: ${text}`)
+    log.info(`Contact: ${contact.name()} Text: ${text}`)
     const isSelf = contact.self()
 
     if (!isSelf && msg.type() === Wechaty.instance().Message.Type.Text) {
       var translate = new Translate()
       // 翻译文本
       const textResult = await translate.text(text)
-      console.log('translate', textResult)
+      // log.info('translate', textResult)
       if (!textResult.errcode) {
         await msg.say(`${textResult.data.to}`)
       } else {

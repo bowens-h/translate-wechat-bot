@@ -16,12 +16,13 @@
  *   limitations under the License.
  *
  */
+import { log } from 'wechaty'
 async function onFriend (contact, request) {
   if (request) {
     const name = contact.name()
     // await request.accept()
 
-    console.log(`Contact: ${name} send request ${request.hello()}`)
+    log.info(`Contact: ${name} send request ${request.hello()}`)
   }
 }
 

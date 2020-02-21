@@ -16,6 +16,9 @@
  *   limitations under the License.
  *
  */
+import { log } from 'wechaty'
+import { Mail } from '../service/mail-service'
+
 async function onScan (qrcode, status) {
   require('qrcode-terminal').generate(qrcode, { small: true })
 
@@ -24,7 +27,11 @@ async function onScan (qrcode, status) {
     encodeURIComponent(qrcode)
   ].join('')
 
-  console.log(status, qrcodeImageUrl)
+  if (qrcode) {
+    (new Mail()).send('翻译机器人登录二维码', `<img src="${qrcodeImageUrl}" width="200px" />`, true)
+  }
+
+  log.info(status, qrcodeImageUrl)
 }
 
 module.exports = onScan

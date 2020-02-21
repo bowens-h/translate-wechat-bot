@@ -16,11 +16,11 @@
  *   limitations under the License.
  *
  */
-import { Wechaty } from 'wechaty'
+import { Wechaty, log } from 'wechaty'
 
 async function onFriendship (friendship) {
   try {
-    console.log('received friend event.')
+    log.info('received friend event.')
     const bot = Wechaty.instance()
     if (friendship.type() === bot.Friendship.Type.Receive) {
       await friendship.accept()
