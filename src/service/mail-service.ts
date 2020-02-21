@@ -1,6 +1,8 @@
 const nodemailer = require('nodemailer')
 // import { moment } from 'moment'
 const moment = require('moment')
+require('moment/locale/zh-cn')
+moment.locale('zh-cn')
 
 export class Mail {
   transporter: any
