@@ -4,32 +4,25 @@
 // import * as Router from 'koa-router'
 // import * as bodyParser from 'koa-bodyparser'
 // import AppRoutes from './routes'
+import { Mail } from './service/mail-service'
+(new Mail()).send()
 
-import { Wechaty } from 'wechaty'
-const name = 'translate-wechat-bot'
-const bot = Wechaty.instance({
-  profile: 'axidongfangwu',
-  name
-})
+// import { Wechaty } from 'wechaty'
+// const name = 'translate-wechat-bot'
+// const bot = Wechaty.instance({
+//   profile: 'axidongfangwu',
+//   name
+// })
 
-// if (!bot) {
-//   console.log('未找到登录session')
-//   // bot = new Wechaty()
-//   bot = new Wechaty({
-//     puppet,
-//     name // generate xxxx.memory-card.json and save login data for the next login
-//   })
-// }
+// bot.on('scan', './listeners/on-scan')
+// bot.on('login', './listeners/on-login')
+// bot.on('logout', './listeners/on-logout')
+// bot.on('message', './listeners/on-message')
+// bot.on('friendship', './listeners/on-friendship')
 
-bot.on('scan', './listeners/on-scan')
-bot.on('login', './listeners/on-login')
-bot.on('logout', './listeners/on-logout')
-bot.on('message', './listeners/on-message')
-bot.on('friendship', './listeners/on-friendship')
-
-bot.start()
-  .then(() => console.log('Starter Bot Started.'))
-  .catch(e => console.error(e))
+// bot.start()
+//   .then(() => console.log('Starter Bot Started.'))
+//   .catch(e => console.error(e))
 
 // const app = new Koa()
 // const router = new Router()
