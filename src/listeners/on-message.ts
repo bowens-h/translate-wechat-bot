@@ -18,7 +18,6 @@
  */
 
 import { Wechaty } from 'wechaty'
-import { FileBox } from 'file-box'
 import { Translate } from '../service/translate-service'
 
 async function onMessage (msg) {

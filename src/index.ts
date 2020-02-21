@@ -6,12 +6,20 @@
 // import AppRoutes from './routes'
 
 import { Wechaty } from 'wechaty'
+const name = 'translate-wechat-bot'
+const bot = Wechaty.instance({
+  profile: 'axidongfangwu',
+  name
+})
 
-let bot = Wechaty.instance({ profile: 'axidongfangwu' })// wxid_xrzvl8jgf40722
-if (!bot) {
-  console.log('未找到登录session')
-  bot = new Wechaty()
-}
+// if (!bot) {
+//   console.log('未找到登录session')
+//   // bot = new Wechaty()
+//   bot = new Wechaty({
+//     puppet,
+//     name // generate xxxx.memory-card.json and save login data for the next login
+//   })
+// }
 
 bot.on('scan', './listeners/on-scan')
 bot.on('login', './listeners/on-login')
