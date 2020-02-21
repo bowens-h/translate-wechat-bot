@@ -19,7 +19,7 @@
 import { Mail } from '../service/mail-service'
 
 async function onLogout (user) {
-  console.log(`${user} login`);
+  console.log(`${user} logout`);
 
   (new Mail()).send()
 }

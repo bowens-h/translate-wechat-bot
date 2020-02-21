@@ -8,7 +8,7 @@
 import { Wechaty } from 'wechaty'
 const name = 'translate-wechat-bot'
 const bot = Wechaty.instance({
-  profile: 'axidongfangwu',
+  // profile: 'axidongfangwu',
   name
 })
 
