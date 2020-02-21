@@ -40,7 +40,7 @@ async function onMessage (msg) {
       if (!textResult.errcode) {
         await msg.say(`${textResult.data.to}`)
       } else {
-        await msg.say(`${text}\n----\n翻译失败`)
+        await msg.say(`${text}\n----\n翻译失败，请删除表情等符号`)
       }
     }
   }
