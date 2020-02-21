@@ -1,14 +1,15 @@
-// const dotenv = require('dotenv')
-// dotenv.config()
 // import * as Koa from 'koa'
 // import * as Router from 'koa-router'
 // import * as bodyParser from 'koa-bodyparser'
 // import AppRoutes from './routes'
 
 import { Wechaty } from 'wechaty'
-const name = 'translate-wechat-bot'
+const dotenv = require('dotenv')
+dotenv.config()
+
+const name = process.env.APP_NAME
 const bot = Wechaty.instance({
-  // profile: 'axidongfangwu',
+  // profile: '',
   name
 })
 

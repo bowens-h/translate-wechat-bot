@@ -8,15 +8,15 @@ export class Mail {
   transporter: any
   config:any = {
     // host: 'smtp.qq.com',
-    service: 'qq', // 使用了内置传输发送邮件 查看支持列表：https://nodemailer.com/smtp/well-known/
-    port: 465, // SMTP 端口
+    service: process.env.MAIL_SERVICE, // 使用了内置传输发送邮件 查看支持列表：https://nodemailer.com/smtp/well-known/
+    port: process.env.MAIL_PORT, // SMTP 端口
     secureConnection: true, // 使用了 SSL
     auth: {
-      user: '357164302@qq.com',
+      user: process.env.MAIL_USER,
       // 这里密码不是qq密码，是你设置的smtp授权码
-      pass: 'eeuongdxhmnsbijj'
+      pass: process.env.MAIL_PASSWORD
     },
-    to: 'hwbrzzl@qq.com'
+    to: process.env.MAIL_TO
   }
 
   constructor () {

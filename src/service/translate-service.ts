@@ -4,8 +4,8 @@ import url from './url-service'
 const md5 = require('js-md5')
 
 export class Translate {
-  appId: Number = 2128602506
-  appSecret: String = '7bLnqxFqQnlbQPLE'
+  appId: Number = parseInt(process.env.TENCENT_AI_APP_ID)
+  appSecret: String = process.env.TENCENT_AI_APP_SECRET
   host: String = 'https://api.ai.qq.com/fcgi-bin'
 
   async text (word) {
