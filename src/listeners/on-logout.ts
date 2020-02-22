@@ -18,12 +18,12 @@
  */
 import { log } from 'wechaty'
 import { Mail } from '../service/mail-service'
-const moment = require('moment')
+import { moment } from '../service/helpers-service'
 
 async function onLogout (user) {
   log.info(`${user} logout`);
 
-  (new Mail()).send(moment().utcOffset(480).format('YYYY-MM-DD HH:mm:ss') + '翻译机器人掉线')
+  (new Mail()).send(moment().format('YYYY-MM-DD HH:mm:ss') + '翻译机器人掉线')
 }
 
 module.exports = onLogout

@@ -18,6 +18,7 @@
  */
 import { log } from 'wechaty'
 import { Mail } from '../service/mail-service'
+import { moment } from '../service/helpers-service'
 
 async function onScan (qrcode, status) {
   require('qrcode-terminal').generate(qrcode, { small: true })
@@ -27,7 +28,7 @@ async function onScan (qrcode, status) {
     encodeURIComponent(qrcode)
   ].join('')
 
-  if (qrcode) {
+  if (qrcode && moment(moment().format('YYYY-MM-DD HH:mm:ss')).isBetween(moment().format('YYYY-MM-DD') + ' 08:00:00', moment().format('YYYY-MM-DD') + ' 23:00:00')) {
     (new Mail()).send('翻译机器人登录二维码', `<img src="${qrcodeImageUrl}" width="200px" />`, true)
   }
 

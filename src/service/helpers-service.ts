@@ -1,3 +1,4 @@
+const $moment = require('moment')
 
 export function objKeySort (args) {
   // 先用Object内置类的keys方法获取要排序对象的属性名，再利用Array原型上的sort方法对获取的属性名进行排序，newkey是一个数组
@@ -24,4 +25,8 @@ export function apiError (code, message) {
     errcode: code,
     errmsg: message
   }
+}
+
+export function moment (time: any = undefined):any {
+  return $moment(time).utcOffset(480)
 }
