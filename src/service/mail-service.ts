@@ -24,6 +24,10 @@ export class Mail {
   }
 
   send (subject, text: String = null, isHtml: Boolean = false) {
+    if (!process.env.MAIL_START) {
+      return
+    }
+
     const mailOptions:any = {
       from: this.config.auth.user, // sender address
       to: this.config.to, // list of receivers

@@ -1,19 +1,28 @@
-[![ 由Wechaty提供 ](https://img.shields.io/badge/Powered%20By-Wechaty-blue.svg)](https://github.com/chatie/wechaty)
+# 微信中英互译小助手
 
+[![ 由Wechaty提供 ](https://img.shields.io/badge/Powered%20By-Wechaty-blue.svg)](https://github.com/chatie/wechaty)
 [![node version](https://img.shields.io/badge/node-%3E%3D10-blue.svg)](http://nodejs.cn/download/)
 [![node version](https://img.shields.io/badge/wechaty-%3E%3D0.30-blue.svg)](https://github.com/Chatie/wechaty)
 ![](https://img.shields.io/badge/Window-green.svg)
 ![](https://img.shields.io/badge/Mac-yellow.svg)
 ![](https://img.shields.io/badge/Centos-blue.svg)
 
-# 微信中英互译小助手
 基于 wechaty 的微信中英互译小助手。实现自动中英互译，再也不用微信聊天时候切换 APP 进行翻译啦，直接转发消息给小助手即可搞定。
 
+## 目录
+- [实现功能](#实现功能)
+- [效果预览](#效果预览)
+- [安装](#安装)
+- [项目中常用docker命令](#项目中常用docker命令)
+- [常见问题与使用要点](#常见问题与使用要点)
+- [声明](#声明)
+- [体验与交流](#体验与交流)
+
 ## 实现功能
-- [x] 自动向接收邮箱发送微信登录二维码；
+- [x] 每天 08:00 至 23:00 自动向接收邮箱发送最新微信登录二维码；
 - [x] 登录成功后自动向接收邮箱发送登录成功邮件；
-- [x] 中英互译；
 - [x] 掉线后自动向接收邮箱发送掉线邮件；
+- [x] 中英互译；
 - [ ] 回复语音翻译；
 - [ ] 多语种支持；
 
@@ -50,10 +59,11 @@
 4. 编辑 .env 文件
     ```bash
     APP_NAME=小助手名称
+    MAIL_START=是否启用邮箱提醒 true|false
     MAIL_USER=发件人邮箱
     MAIL_PASSWORD=发件人密码（授权码）
     MAIL_TO=收件人
-    MAIL_HOST==stmp服务器
+    MAIL_HOST=stmp服务器
     MAIL_PORT=stmp端口号
     TENCENT_AI_APP_ID=腾讯ai平台app_id
     TENCENT_AI_APP_KEY=腾讯ai平台app_key
@@ -80,18 +90,18 @@
    docker run -dit --rm --name APP_NAME -e WECHATY_PUPPET="wechaty-puppet-padplus"  -e WECHATY_LOG="verbose"  -e WECHATY_PUPPET_PADPLUS_TOKEN="TOKEN" --mount type=bind,source="$(pwd)",target=/bot zixia/wechaty src/index.ts
    ```
    > 命令释意：  
-   > -it：容器的 Shell 映射到当前的 Shell，然后你在本机窗口输入的命令，就会传入容器；
+   > -it：容器的 Shell 映射到当前的 Shell，然后你在本机窗口输入的命令，就会传入容器；  
    > -dit：同上 + 后台运行；  
    > --name：创建容器的名称；  
    > --rm：在容器终止运行后自动删除容器文件；  
-   > --volume="$(pwd)":/bot 在镜像外层目录上挂载一个bot文件夹，存放的是当前文件夹的内容；  
+   > --volume="$(pwd)":/bot：在镜像外层目录上挂载一个bot文件夹，存放的是当前文件夹的内容；  
    > --mount：同上 + 热更新，[参考链接](http://einverne.github.io/post/2018/03/docker-v-and-mount.html);  
    > -e WECHATY_PUPPET_PADPLUS_TOKEN：设置 TOKEN 环境变量，供容器内使用；  
    > -e WECHATY_LOG：设置日志环境变量，供容器内使用，[参考链接](https://github.com/wechaty/wechaty/wiki/Log)；  
    > -p 8888:8888：映射本地 8888 端口到 docker 8888 端口；
 6. 运行成功后，扫描命令行上的二维码即可正常使用；
 
-## 项目中常用 docker 命令
+## 项目中常用docker命令
 ```bash
 # 查看当前已安装镜像
 docker images
@@ -131,7 +141,8 @@ docker run -ti --name APP_NAME --rm --volume="$(pwd)":/bot zixia/wechaty bash
 4. 只要手机微信上依然显示着 web 或 pad 登录中，且实例化 Wechaty 是给定了 name 参数，重启脚本不用再次扫码登录，将会自动登录；
 5. 在任意文件中，使用 `Wechaty.instance()` 都可获得当前 Wechaty 实例，当然，需要先 `import { Wechaty } from 'wechaty'`；
 6. 在与腾讯 AI 平台接口交互时，需要进行 sign 加密校验，由于 javascript 的 urlencode 方法与其他语言表现不一致，故需自定义 urlencode 方法，详见 `src/service/user-service.ts`；
-7. 更多问题
+7. 更多问题  
+   
    如果以上还没有解决你的问题，由于本项目是依赖 wechaty 开发，所以请先前往 [wechaty](https://github.com/wechaty/wechaty) 的项目 issues 中或 Google 查找是否存在相同的问题。
 
 ## 声明

@@ -1,11 +1,11 @@
 {
   "name": "translate-wechat-bot",
   "version": "1.0.0",
-  "description": "微信翻译机器人",
+  "description": "微信中英互译小助手",
   "tags": [
-    "orm",
-    "typescript",
-    "koa"
+    "wechat",
+    "bot",
+    "translate"
   ],
   "scripts": {
     "start": "nodemon",
