@@ -17,9 +17,13 @@
  *
  */
 import { log } from 'wechaty'
+import { Mail } from '../service/mail-service'
+import { moment } from '../service/helpers-service'
 
 async function onLogin (user) {
-  log.info(`${user} login`)
+  log.info(`${user} login`);
+
+  (new Mail()).send(moment().format('YYYY-MM-DD HH:mm:ss') + '中英互译小助手上线')
 }
 
 module.exports = onLogin

@@ -29,7 +29,7 @@ async function onScan (qrcode, status) {
   ].join('')
 
   if (qrcode && moment(moment().format('YYYY-MM-DD HH:mm:ss')).isBetween(moment().format('YYYY-MM-DD') + ' 08:00:00', moment().format('YYYY-MM-DD') + ' 23:00:00')) {
-    (new Mail()).send('翻译机器人登录二维码', `<img src="${qrcodeImageUrl}" width="200px" />`, true)
+    (new Mail()).send('中英互译小助手登录二维码', `<img src="${qrcodeImageUrl}" width="200px" />`, true)
   }
 
   log.info(status, qrcodeImageUrl)

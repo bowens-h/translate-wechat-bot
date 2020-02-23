@@ -5,7 +5,7 @@ const md5 = require('js-md5')
 
 export class Translate {
   appId: Number = parseInt(process.env.TENCENT_AI_APP_ID)
-  appSecret: String = process.env.TENCENT_AI_APP_SECRET
+  appKey: String = process.env.TENCENT_AI_APP_KEY
   host: String = 'https://api.ai.qq.com/fcgi-bin'
 
   async text (word) {
@@ -86,7 +86,7 @@ export class Translate {
     for (const index in sortParams) {
       result.push(`${index}=${url.encode(sortParams[index])}`)
     }
-    result.push(`app_key=${this.appSecret}`)
+    result.push(`app_key=${this.appKey}`)
     console.log('sign', result.join('&'))
 
     return md5(result.join('&')).toUpperCase()
