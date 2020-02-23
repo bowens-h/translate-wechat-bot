@@ -1,9 +1,5 @@
 node_modules
 dist
-package.json.lock
 .env
 .bash_history
-axidongfangwu.memory-card.json
-hwbrzzl.memory-card.json
-translate-wechat-bot.memory-card.json
 .wechaty

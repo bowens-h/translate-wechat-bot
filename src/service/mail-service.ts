@@ -7,8 +7,8 @@ const nodemailer = require('nodemailer')
 export class Mail {
   transporter: any
   config:any = {
-    // host: 'smtp.qq.com',
-    service: process.env.MAIL_SERVICE, // 使用了内置传输发送邮件 查看支持列表：https://nodemailer.com/smtp/well-known/
+    host: process.env.MAIL_HOST,
+    // service: process.env.MAIL_SERVICE, // 使用了内置传输发送邮件 查看支持列表：https://nodemailer.com/smtp/well-known/
     port: process.env.MAIL_PORT, // SMTP 端口
     secureConnection: true, // 使用了 SSL
     auth: {

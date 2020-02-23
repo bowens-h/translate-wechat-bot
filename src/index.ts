@@ -2,7 +2,6 @@
 // import * as Router from 'koa-router'
 // import * as bodyParser from 'koa-bodyparser'
 // import AppRoutes from './routes'
-
 import { Wechaty } from 'wechaty'
 const dotenv = require('dotenv')
 dotenv.config()
