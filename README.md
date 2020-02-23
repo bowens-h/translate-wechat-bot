@@ -23,7 +23,7 @@
 - [x] 登录成功后自动向接收邮箱发送登录成功邮件；
 - [x] 掉线后自动向接收邮箱发送掉线邮件；
 - [x] 中英互译；
-- [ ] 回复语音翻译；
+- [ ] 语音翻译；
 - [ ] 多语种支持；
 
 ## 效果预览
@@ -92,11 +92,11 @@
    > 命令释意：  
    > -it：容器的 Shell 映射到当前的 Shell，然后你在本机窗口输入的命令，就会传入容器；  
    > -dit：同上 + 后台运行；  
-   > --name：创建容器的名称；  
+   > --name：创建容器的名称，请将 APP_NAME 进行替换；  
    > --rm：在容器终止运行后自动删除容器文件；  
    > --volume="$(pwd)":/bot：在镜像外层目录上挂载一个bot文件夹，存放的是当前文件夹的内容；  
    > --mount：同上 + 热更新，[参考链接](http://einverne.github.io/post/2018/03/docker-v-and-mount.html);  
-   > -e WECHATY_PUPPET_PADPLUS_TOKEN：设置 TOKEN 环境变量，供容器内使用；  
+   > -e WECHATY_PUPPET_PADPLUS_TOKEN：设置 TOKEN 环境变量，供容器内使用，请将 TOKEN 进行替换；  
    > -e WECHATY_LOG：设置日志环境变量，供容器内使用，[参考链接](https://github.com/wechaty/wechaty/wiki/Log)；  
    > -p 8888:8888：映射本地 8888 端口到 docker 8888 端口；
 6. 运行成功后，扫描命令行上的二维码即可正常使用；
