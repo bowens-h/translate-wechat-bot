@@ -23,7 +23,7 @@ import { moment } from '../service/helpers-service'
 async function onLogout (user) {
   log.info(`${user} logout`);
 
-  (new Mail()).send(moment().format('YYYY-MM-DD HH:mm:ss') + '中英互译小助手掉线')
+  (new Mail()).send(moment().format('YYYY-MM-DD HH:mm:ss') + `${user}掉线`)
 }
 
 module.exports = onLogout
