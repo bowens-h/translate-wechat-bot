@@ -21,7 +21,7 @@
     "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "nodemailer": "^6.4.2"
   },
   "devDependencies": {
